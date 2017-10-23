@@ -32,7 +32,10 @@ public class Lab09b {
 			
 			getDigits(int_array, in);
 			
+			System.out.println("\nArray before sorting:: ");
 			displayDigits(int_array);
+			
+			selectionSort(int_array);
 		}
 		
 		System.out.print("No digits to store? Goodbye!");
@@ -82,8 +85,7 @@ public class Lab09b {
 	// and displays the contents of the array in order, starting at index 0 and ending
 	// with the final index of the array.
 	private static void displayDigits(int[] digits) {
-		System.out.println("");
-		System.out.println("The contents of your array: ");
+		
 		System.out.println("Number of digits in array: " + digits.length);
 		System.out.print("Digits in array: ");
 		
@@ -101,19 +103,28 @@ public class Lab09b {
 	// provided in the Closed Lab 10 write-up.
 	private static void selectionSort(int[] digits) {
 		
-		System.out.println("Array after sorting: ");
-		System.out.println("The contents of your array: ");
-		System.out.print("Digits in array: ");
+		// 3 2 1
 		
-		for(int i = 0; i < digits.length; i++)
+		System.out.println("Array after sorting: ");
+		int run = 0;
+		while(run < digits.length)
 		{
-			int temp = 0;
-			
-			if(digits[i] > temp)
+			for(int i = 1; i < digits.length; i++)
 			{
 				
+				if(digits[i] < digits[i-1])
+				{
+					int temp = digits[i-1];
+					digits[i-1] = digits[i];
+					digits[i] = temp;
+					
+				}
 			}
+			
+			run++;
 		}
+		
+		displayDigits(digits);
 		
 
 	}
